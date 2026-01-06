@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatima Azzahra - Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7c3aed;
+            --secondary-color: #1e293b;
+            --accent-color: #f59e0b;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+            --gray-color: #64748b;
+            --light-gray: #e2e8f0;
+            --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+            --gradient-secondary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            padding-top: 80px;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 15px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes progress {
+            from { width: 0; }
+            to { width: var(--progress-width); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(124, 58, 237, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+        }
+        
+        /* Header & Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 0.8rem 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--dark-color) !important;
+        }
+        
+        .navbar-brand span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            margin: 0 0.3rem;
+            font-size: 0.95rem;
+            padding: 0.3rem 0.8rem !important;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+            background-color: rgba(124, 58, 237, 0.05);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 6rem 0 4rem;
+            background: var(--gradient-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0.05) 100%);
+            top: -150px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        .hero-title span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--gray-color);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+        
+        .btn-primary-custom {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease 0.6s both;
+            color: white;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+            color: white;
+        }
+        
+        .hero-image {
+            animation: slideInRight 1s ease;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+            border: 5px solid white;
+            animation: pulse 2s infinite;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        /* Section Common Styles */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-primary);
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: var(--gray-color);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            font-size: 0.95rem;
+        }
+        
+        .section-padding {
+            padding: 3.5rem 0;
+        }
+        
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-section {
+            background-color: var(--light-color);
+        }
+        
+        .about-image img {
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            animation: slideInLeft 1s ease;
+        }
+        
+        .about-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-content p {
+            color: var(--gray-color);
+            margin-bottom: 1.1rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Learning Highlights */
+        .learning-highlights {
+            margin-top: 2rem;
+        }
+        
+        .learning-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .learning-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .learning-item:hover .learning-icon {
+            background: var(--gradient-primary);
+            color: white;
+            transform: rotate(5deg);
+        }
+        
+        .learning-content h5 {
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+        
+        .learning-content p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        /* Education & Organization Combined Section */
+        .edu-org-section {
+            background-color: white;
+        }
+        
+        .edu-org-title {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .edu-org-title::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        /* Education Box */
+        .edu-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .edu-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .edu-year {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .edu-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .edu-content p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Organization Cards */
+        .org-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            border-top: 3px solid transparent;
+        }
+        
+        .org-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .org-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .org-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .org-card:hover .org-icon {
+            background: var(--gradient-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .org-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+            color: var(--primary-color);
+        }
+        
+        .org-position {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            font-weight: 500;
+        }
+        
+        .org-details {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            background-color: var(--light-color);
+        }
+        
+        .skills-container {
+            margin-top: 1rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+        
+        .skill-category h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h4 i {
+            margin-right: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary-color);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .skill-info {
+            flex: 1;
+        }
+        
+        .skill-name {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+        
+        .skill-bar-container {
+            height: 6px;
+            background-color: var(--light-gray);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+            width: 0;
+            animation: progress 1.5s ease forwards;
+        }
+        
+        .skill-percentage {
+            font-size: 0.8rem;
+            color: var(--gray-color);
+            margin-left: 0.5rem;
+            font-weight: 500;
+        }
+        
+        /* Projects Section */
+        .projects-section {
+            background-color: var(--light-color);
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .project-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 1.2rem;
+        }
+        
+        .project-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-content p {
+            color: var(--gray-color);
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        
+        .project-tag {
+            background-color: var(--light-gray);
+            color: var(--dark-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--light-color);
+        }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: var(--gradient-primary);
+            color: white;
+            transform: rotate(5deg);
+        }
+        
+        .contact-details h5 {
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+        
+        .contact-details p {
+            color: var(--gray-color);
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .social-link:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form .form-control {
+            padding: 0.7rem 0.9rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.1);
+        }
+        
+        .contact-form textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .floating-btn.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2.5rem 0 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .footer-logo span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer p {
+            color: #cbd5e1;
+            margin-bottom: 1.2rem;
+            max-width: 250px;
+            font-size: 0.85rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.85rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            border-top: 1px solid #334155;
+            padding-top: 1.2rem;
+            margin-top: 1.5rem;
+            color: #94a3b8;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        /* Animasi untuk elemen saat scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-padding {
+                padding: 2.5rem 0;
+            }
+            
+            .hero-section {
+                padding: 5rem 0 3rem;
+            }
+            
+            .hero-image img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Fatima <span>Azzahra</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Learning Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#edu-org">Education & Organization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Hi, I'm <span>Fatima Azzahra</span><br>Student Software Engineering</h1>
+                    <p class="hero-subtitle">SMKN TENGARAN student passionate about web development. Currently learning HTML, CSS, JavaScript, Laragon, Laravel, and creating admin dashboards with Filament.</p>
+                    <a href="#projects" class="btn btn-primary-custom">View My Projects</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image text-center mt-4 mt-lg-0">
+                        <img src="img/logoo.jpeg" alt="Fatima Azzahra">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Experience Section -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-title">My Learning Experience</h2>
+                    <p class="section-subtitle mx-auto">What I've learned during my Software Engineering studies at school</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="about-image">
+                        <img src="img/about.jpg" alt="Learning Experience">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="about-content fade-in">
+                        <h3>Software Engineering Journey at SMKN TENGARAN</h3>
+                        <p>Studying software engineering at SMKN TENGARAN with a focus on web development.</p>
+                        <p>Experienced in HTML, CSS, JavaScript, and Laravel using Laragon.</p>
+
+                        <div class="learning-highlights">
+                            <div class="learning-item fade-in">
+                                <div class="learning-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="learning-content">
+                                    <h5>Frontend Development</h5>
+                                    <p>HTML5, CSS3, JavaScript, responsive web design, and modern UI/UX principles.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="learning-item fade-in">
+                                <div class="learning-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="learning-content">
+                                    <h5>Backend & Framework</h5>
+                                    <p>Laravel PHP framework, Laragon for development environment, database management.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="learning-item fade-in">
+                                <div class="learning-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <div class="learning-content">
+                                    <h5>Dashboard & Admin Panels</h5>
+                                    <p>Creating admin dashboards using Filament, managing user interfaces and data visualization.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="learning-item fade-in">
+                                <div class="learning-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="learning-content">
+                                    <h5>Database & Tools</h5>
+                                    <p>MySQL database design, Git version control, and various development tools.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Organization Section -->
+    <section id="edu-org" class="edu-org-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-title">Education & Organization</h2>
+                    <p class="section-subtitle mx-auto">My academic background and extracurricular involvement</p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Education Column -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="fade-in">
+                        <h3 class="edu-org-title">Education</h3>
+                        
+                        <div class="edu-box">
+                            <span class="edu-year">2023 - 2026</span>
+                            <div class="edu-content">
+                                <h4>SMKN TENGARAN</h4>
+                                <p><strong>Software Engineering</strong></p>
+                                <p>Focus on web development, programming fundamentals, and software engineering principles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Organization Column -->
+                <div class="col-lg-6">
+                    <div class="fade-in">
+                        <h3 class="edu-org-title">Organization</h3>
+                        
+                        <!-- Rohis Card -->
+                        <div class="org-card">
+                            <div class="org-header">
+                                <div class="org-icon">
+                                    <i class="fas fa-mosque"></i>
+                                </div>
+                                <div>
+                                    <h4 class="org-title">Rohis (Rohani Islam)</h4>
+                                    <p class="org-position">Cleaning Schedule Division</p>
+                                </div>
+                            </div>
+                            <div class="org-details">
+                                <p>Responsible for organizing mosque and prayer room cleaning schedules, ensuring proper maintenance and cleanliness of religious facilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-subtitle mx-auto">Skills acquired through my Software Engineering studies</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="skill-category fade-in">
+                        <h4><i class="fas fa-code"></i> Frontend Development</h4>
+                        <div class="skills-container">
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="skill-name">HTML5</div>
+                                        <div class="skill-percentage">90%</div>
+                                    </div>
+                                    <div class="skill-bar-container">
+                                        <div class="skill-bar" style="--progress-width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fab fa-css3-alt"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="skill-name">CSS3 & Bootstrap</div>
+                                        <div class="skill-percentage">85%</div>
+                                    </div>
+                                    <div class="skill-bar-container">
+                                        <div class="skill-bar" style="--progress-width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="skill-name">JavaScript</div>
+                                        <div class="skill-percentage">80%</div>
+                                    </div>
+                                    <div class="skill-bar-container">
+                                        <div class="skill-bar" style="--progress-width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-category fade-in">
+                        <h4><i class="fas fa-server"></i> Backend & Tools</h4>
+                        <div class="skills-container">
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fab fa-php"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="skill-name">PHP & Laravel</div>
+                                        <div class="skill-percentage">75%</div>
+                                    </div>
+                                    <div class="skill-bar-container">
+                                        <div class="skill-bar" style="--progress-width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="skill-name">MySQL Database</div>
+                                        <div class="skill-percentage">80%</div>
+                                    </div>
+                                    <div class="skill-bar-container">
+                                        <div class="skill-bar" style="--progress-width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="skill-name">Laragon & Tools</div>
+                                        <div class="skill-percentage">85%</div>
+                                    </div>
+                                    <div class="skill-bar-container">
+                                        <div class="skill-bar" style="--progress-width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-title">School Projects</h2>
+                    <p class="section-subtitle mx-auto">Projects created during my Software Engineering studies</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            <img src="img/port1.jpg" alt="Web Dashboard">
+                        </div>
+                        <div class="project-content">
+                            <h4>Portofolio Website</h4>
+                            <p>Personal portfolio website created as a school project to showcase profile and skills.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            <img src="img/port2.jpg" alt="E-commerce Website">
+                        </div>
+                        <div class="project-content">
+                            <h4>Website WordPress</h4>
+                            <p>WordPress-based website project created at school for learning website management.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML/CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">Mysql</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            <img src="img/port3.jpg" alt="E-commerce Website">
+                        </div>
+                        <div class="project-content">
+                            <h4>Coffe Website</h4>
+                            <p>Coffee-themed website project built at school using basic web technologies.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            <img src="img/port4.jpg" alt="E-commerce Website">
+                        </div>
+                        <div class="project-content">
+                            <h4>UMKM Website</h4>
+                            <p>UMKM website project developed at school to display products and business information.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            <img src="img/port5.jpg" alt="E-commerce Website">
+                        </div>
+                        <div class="project-content">
+                            <h4>Portofolio Website</h4>
+                            <p>Portfolio website project built at school using PHP and MySQL.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">Mysql</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            <img src="img/port6.jpg" alt="School Management">
+                        </div>
+                        <div class="project-content">
+                            <h4>Website Desa</h4>
+                            <p>Village website project built at school using Laravel for content management.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">Laravel</span>
+                                <span class="project-tag">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            <img src="img/port7.jpg" alt="School Management">
+                        </div>
+                        <div class="project-content">
+                            <h4>UMKM Website</h4>
+                            <p>UMKM website project developed at school with order management and admin dashboard.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">Laravel</span>
+                                <span class="project-tag">Bootstrap</span>
+                                <span class="project-tag">Fillament</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-title">Contact Me</h2>
+                    <p class="section-subtitle mx-auto">Get in touch for collaboration or questions</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="contact-info fade-in">
+                        <h3 class="mb-3">Let's Connect</h3>
+                        <p>I'm open to discussing projects, sharing knowledge, or just connecting with fellow developers.</p>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Location</h5>
+                                <p>Semarang, Indonesia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Email</h5>
+                                <p>fatima.azzahra@example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>School</h5>
+                                <p>SMKN TENGARAN</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <form class="contact-form fade-in">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" placeholder="Your Message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Button -->
+    <div class="floating-btn" id="floatingBtn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a href="#" class="footer-logo">Fatima <span>Azzahra</span></a>
+                    <p>Software Engineering student at SMKN TENGARAN passionate about web development and creating digital solutions.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Learning Experience</a></li>
+                        <li><a href="#edu-org">Education & Organization</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Technologies</h5>
+                    <ul class="footer-links">
+                        <li><a href="#skills">HTML/CSS/JavaScript</a></li>
+                        <li><a href="#skills">Laravel & PHP</a></li>
+                        <li><a href="#skills">MySQL Database</a></li>
+                        <li><a href="#skills">Bootstrap</a></li>
+                        <li><a href="#skills">Git & GitHub</a></li>
+                        <li><a href="#skills">Filament</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="copyright">
+                        &copy; 2024 Fatima Azzahra - SMKN TENGARAN Software Engineering Student
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Scroll animation for elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Floating button
+        const floatingBtn = document.getElementById('floatingBtn');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                floatingBtn.classList.add('show');
+            } else {
+                floatingBtn.classList.remove('show');
+            }
+        });
+        
+        floatingBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('.btn-primary-custom');
+                const originalText = submitBtn.innerHTML;
+                
+                // Show loading
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    // Show success
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
+                    submitBtn.style.background = '#10b981';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }, 1500);
+            });
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+        
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-bar');
+        
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.getPropertyValue('--progress-width');
+                    entry.target.style.width = width;
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+    </script>
+</body>
+</html>
